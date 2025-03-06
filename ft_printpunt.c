@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printpunt.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 23:22:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/02/13 23:22:58 by miguelmo         ###   ########.fr       */
+/*   Created: 2025/03/04 20:38:17 by miguelmo          #+#    #+#             */
+/*   Updated: 2025/03/04 21:19:46 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *s, ...)
+int	ft_printpunt(va_list args)
 {
-	va_list	args;
+	char	*ret;
+	void	*ptr;
 	int		cont;
-	int		i;
 
-	i = 0;
-	va_start(args, s);
-	cont = ft_filter(s, args);
-	while (s[i] != '\0')
+	ptr = va_arg(args, void *);
+	if (!ptr)
 	{
-		if (s[i] == '%')
-		{
-			i++;
-			if (s[i] == '%')
-				write (1, %, 1);
-			ft_filter(s[i], args);
-		}
-		else
-		{
-			write(1, s, 1);
-			cont++;
-		}
-		i++;
+		write(1, "(nil)", 5);
+		return (5);
 	}
-	va_end(args);
-	return (cont);
+	ret = ft_pointer_to_hex((uintptr_t)ptr);
+	cont = ft_strlen(ret);
+	write(1, "0x", 2);
+	write(1, ret, cont);
+	free(ret);
+	return (cont + 2);
 }

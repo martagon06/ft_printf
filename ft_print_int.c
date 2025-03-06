@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 23:22:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/02/13 23:22:58 by miguelmo         ###   ########.fr       */
+/*   Created: 2025/03/04 21:16:56 by miguelmo          #+#    #+#             */
+/*   Updated: 2025/03/04 21:17:10 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_printf(char const *s, ...)
+int	ft_print_int(va_list args)
 {
-	va_list	args;
-	int		cont;
-	int		i;
+	char	*str;
+	int		ret;
 
-	i = 0;
-	va_start(args, s);
-	cont = ft_filter(s, args);
-	while (s[i] != '\0')
-	{
-		if (s[i] == '%')
-		{
-			i++;
-			if (s[i] == '%')
-				write (1, %, 1);
-			ft_filter(s[i], args);
-		}
-		else
-		{
-			write(1, s, 1);
-			cont++;
-		}
-		i++;
-	}
-	va_end(args);
-	return (cont);
+	if (!args)
+		return (0);
+	str = ft_itoa(va_arg(args, int));
+	ret = (int)ft_strlen(str);
+	write(1, str, ret);
+	free(str);
+	return (ret);
 }

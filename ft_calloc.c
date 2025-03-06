@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 23:22:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/02/13 23:22:58 by miguelmo         ###   ########.fr       */
+/*   Created: 2025/03/04 21:38:51 by miguelmo          #+#    #+#             */
+/*   Updated: 2025/03/04 21:39:25 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *s, ...)
+static	void	*ft_calloc(size_t nmeb, size_t size)
 {
-	va_list	args;
-	int		cont;
-	int		i;
+	void				*ptr;
+	void				*cpy_ptr;
+	unsigned long int	to_cmp;
 
-	i = 0;
-	va_start(args, s);
-	cont = ft_filter(s, args);
-	while (s[i] != '\0')
+	to_cmp = (unsigned long int)nmeb * (unsigned long int)size;
+	if (!to_cmp || (to_cmp >= INT_MAX))
+		return (malloc(0));
+	ptr = malloc((nmeb) * size);
+	if (!ptr)
+		return (ptr);
+	cpy_ptr = ptr;
+	while (nmeb--)
 	{
-		if (s[i] == '%')
-		{
-			i++;
-			if (s[i] == '%')
-				write (1, %, 1);
-			ft_filter(s[i], args);
-		}
-		else
-		{
-			write(1, s, 1);
-			cont++;
-		}
-		i++;
+		ft_bzero(ptr, size);
+		ptr += size;
 	}
-	va_end(args);
-	return (cont);
+	return (cpy_ptr);
 }

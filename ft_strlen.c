@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 23:22:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/02/13 23:22:58 by miguelmo         ###   ########.fr       */
+/*   Created: 2025/03/04 21:38:04 by miguelmo          #+#    #+#             */
+/*   Updated: 2025/03/04 21:39:27 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *s, ...)
+static size_t	ft_strlen(const char *s)
 {
-	va_list	args;
-	int		cont;
-	int		i;
+	size_t	len;
 
-	i = 0;
-	va_start(args, s);
-	cont = ft_filter(s, args);
-	while (s[i] != '\0')
-	{
-		if (s[i] == '%')
-		{
-			i++;
-			if (s[i] == '%')
-				write (1, %, 1);
-			ft_filter(s[i], args);
-		}
-		else
-		{
-			write(1, s, 1);
-			cont++;
-		}
-		i++;
-	}
-	va_end(args);
-	return (cont);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

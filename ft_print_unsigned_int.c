@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned_int.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 23:22:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/02/13 23:22:58 by miguelmo         ###   ########.fr       */
+/*   Created: 2025/03/04 21:21:30 by miguelmo          #+#    #+#             */
+/*   Updated: 2025/03/04 21:22:07 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *s, ...)
+int	ft_print_unsigned_int(va_list args)
 {
-	va_list	args;
-	int		cont;
-	int		i;
+	char			*str;
+	int				ret;
+	unsigned int	num;
 
-	i = 0;
-	va_start(args, s);
-	cont = ft_filter(s, args);
-	while (s[i] != '\0')
-	{
-		if (s[i] == '%')
-		{
-			i++;
-			if (s[i] == '%')
-				write (1, %, 1);
-			ft_filter(s[i], args);
-		}
-		else
-		{
-			write(1, s, 1);
-			cont++;
-		}
-		i++;
-	}
-	va_end(args);
-	return (cont);
+	num = va_arg(args, unsigned int);
+	str = ft_uitoa(num);
+	ret = (int)ft_strlen(str);
+	write(1, str, ret);
+	free(str);
+	return (ret);
 }
