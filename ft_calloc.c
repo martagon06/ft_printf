@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: miguelmo <miguelmo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 21:38:51 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/03/04 21:39:25 by miguelmo         ###   ########.fr       */
+/*   Updated: 2025/03/07 19:09:31 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	void	*ft_calloc(size_t nmeb, size_t size)
+void	*ft_calloc(size_t nmeb, size_t size)
 {
 	void				*ptr;
 	void				*cpy_ptr;

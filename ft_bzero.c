@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: miguelmo <miguelmo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 14:17:09 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/02/14 19:06:55 by miguelmo         ###   ########.fr       */
+/*   Created: 2025/03/07 18:30:31 by miguelmo          #+#    #+#             */
+/*   Updated: 2025/03/07 18:34:30 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_string(va_list args)
+void	ft_bzero(void *str, size_t size)
 {
-	int		len;
-	char	*str;
+	size_t	i;
+	char	*s;
 
-	len = 0;
-	str = va_arg(args, char *);
-	if (!str)
-	{
-		write (1, "(null)", 6);
-		return (6);
-	}
-	write (1, str, ft_strlen(str));
-	return (ft_strlen(str));
+	i = 0;
+	s = (char *)str;
+	while (i < size)
+		s[i++] = 0;
 }

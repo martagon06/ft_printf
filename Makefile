@@ -1,8 +1,21 @@
 NAME = libftprintf.a
-SOURCES = \
-\
+SOURCES = ft_calloc.c \
+ft_filter.c\
+ft_hex_num_len.c\
+ft_hexa_max.c\
+ft_hexa_min\
+ft_itoa.c\
+ft_print_int.c\
+ft_print_string.c\
+ft_print_unsigned_int.c\
+ft_printf.c\
+ft_printpunt.c\
+ft_putchar.c\
+ft_strlen.c\
+ft_to_hex.c\
+ft_bzero.c
 
-OBJECTS = $(SOURCES:.C=.o)
+OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -12,7 +25,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	$(AR) -r $@ $?
 
-%.o: %.C
+%.o: %.c
 	%(CC) -c $(CFLAGS) $?
 
 clean: 

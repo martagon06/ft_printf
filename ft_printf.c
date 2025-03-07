@@ -28,7 +28,7 @@ int	ft_printf(char const *s, ...)
 			i++;
 			if (s[i] == '%')
 				write (1, %, 1);
-			ft_filter(s[i], args);
+			ft_filter(s[i], args, cont);
 		}
 		else
 		{
