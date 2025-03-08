@@ -6,7 +6,7 @@
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:32:01 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/03/04 21:39:18 by miguelmo         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:29:00 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdarg.h>
+# include <stdlib.h>
 
 int		ft_printf(char const *s, ...);
 int		ft_filter(char const s, va_list args);
@@ -34,5 +35,6 @@ size_t	hex_num_len(unsigned long long int num);
 char	*ft_itoa(int n);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t nmeb, size_t size);
+void	ft_bzero(void *str, size_t size);
 
 #endif 
