@@ -3,7 +3,7 @@ SOURCES = ft_calloc.c \
 ft_filter.c\
 ft_hex_num_len.c\
 ft_hexa_max.c\
-ft_hexa_min\
+ft_hexa_min.c\
 ft_itoa.c\
 ft_print_int.c\
 ft_print_string.c\
@@ -13,7 +13,8 @@ ft_printpunt.c\
 ft_putchar.c\
 ft_strlen.c\
 ft_to_hex.c\
-ft_bzero.c
+ft_bzero.c\
+ft_uitoa.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

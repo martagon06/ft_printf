@@ -6,9 +6,11 @@
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 21:16:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/03/04 21:17:10 by miguelmo         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:22:50 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_print_int(va_list args)
 {

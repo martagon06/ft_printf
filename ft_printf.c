@@ -6,7 +6,7 @@
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 23:22:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/02/13 23:22:58 by miguelmo         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:45:09 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	ft_printf(char const *s, ...)
 		{
 			i++;
 			if (s[i] == '%')
-				write (1, %, 1);
-			ft_filter(s[i], args, cont);
+				write (1, "%", 1);
+			cont += ft_filter(s[i], args);
 		}
 		else
 		{
-			write(1, s, 1);
+			write(1, &s[i], 1);
 			cont++;
 		}
 		i++;

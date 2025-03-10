@@ -6,13 +6,13 @@
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 23:22:49 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/03/10 10:21:31 by miguelmo         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:35:44 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_filter(char const c, va_list args)
+int	ft_filter(char c, va_list args)
 {
 	if (c == 'c')
 		ft_putchar(args);
