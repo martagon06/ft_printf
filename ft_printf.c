@@ -6,7 +6,7 @@
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 23:22:56 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/03/10 18:45:09 by miguelmo         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:55:51 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printf(char const *s, ...)
 
 	i = 0;
 	va_start(args, s);
-	cont = ft_filter(s, args);
+	cont = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%')

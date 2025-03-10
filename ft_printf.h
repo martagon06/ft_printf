@@ -6,7 +6,7 @@
 /*   By: miguelmo <miguelmo@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:32:01 by miguelmo          #+#    #+#             */
-/*   Updated: 2025/03/10 17:25:24 by miguelmo         ###   ########.fr       */
+/*   Updated: 2025/03/10 19:02:41 by miguelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t nmeb, size_t size);
 void	ft_bzero(void *str, size_t size);
 char	*ft_uitoa(unsigned int n);
+char	*ft_pointer_to_hex(uintptr_t int_ptr);
 
 #endif 

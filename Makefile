@@ -1,6 +1,5 @@
 NAME = libftprintf.a
-SOURCES = ft_calloc.c \
-ft_filter.c\
+SOURCES = ft_calloc.c ft_filter.c\
 ft_hex_num_len.c\
 ft_hexa_max.c\
 ft_hexa_min.c\
@@ -14,7 +13,8 @@ ft_putchar.c\
 ft_strlen.c\
 ft_to_hex.c\
 ft_bzero.c\
-ft_uitoa.c
+ft_uitoa.c\
+ft_pointer_to_hex.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
