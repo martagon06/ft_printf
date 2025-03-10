@@ -23,10 +23,10 @@ CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(AR) -r $@ $?
+	$(AR) -r $@ $^
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	$(CC) -c $(CFLAGS) $<
 
 clean: 
 	rm -f $(OBJECTS) 
