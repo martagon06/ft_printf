@@ -20,14 +20,16 @@ OBJECTS = $(SOURCES:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
+AR = ar
+ARFLAGS = rcs
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(AR) -r $@ $^
+	$(AR) $(ARFLAGS) $@ $^
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $<
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 
 	rm -f $(OBJECTS) 
